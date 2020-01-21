@@ -6,8 +6,7 @@ module.exports = {
   },
   externals: {
     // Use external version of React
-    react: "React",
-    "react-dom": "ReactDOM"
+    react: "React"
   },
   target: "node",
   optimization: {
@@ -26,7 +25,7 @@ module.exports = {
   },
   output: {
     libraryExport: "default",
-    libraryTarget: "commonjs2"
+    libraryTarget: "commonjs-module"
   },
   devServer: {
     host: "localhost",
