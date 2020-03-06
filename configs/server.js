@@ -10,10 +10,10 @@ function createConfig(mode) {
     aliases: []
   };
   // Define the app entry file
-  const entry = ["./src/server.js"];
+  const entry = ["./src/index.js"];
   const output = {
     filename: "server.bundle.js",
-    path: path.resolve("../build")
+    path: path.resolve("build")
   };
 
   // Development only variables.
@@ -27,7 +27,9 @@ function createConfig(mode) {
     );
   }
 
-  return createBaseConfig(mode, "node", entry, output, options);
+  const config = createBaseConfig(mode, "node", entry, output, options);
+  console.log(config, "config");
+  return config;
 }
 
 module.exports = createConfig;

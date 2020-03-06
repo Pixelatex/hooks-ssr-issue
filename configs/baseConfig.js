@@ -3,18 +3,6 @@ const WebpackBar = require("webpackbar");
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 
-/**
- *
- * @param {string} mode - production or development
- * @param {string} target - web or node
- * @param {string} entry - path to src file
- * @param {object} options
- * @param {object} options.rules
- * @param {object} options.devServer
- * @param {array} options.externalWhiteList
- * @param {array} options.webpackPlugins
- * @param {array} options.aliases
- */
 function createBaseConfig(mode, target, entry, output, options) {
   const {
     externalWhiteList = [],
@@ -50,7 +38,11 @@ function createBaseConfig(mode, target, entry, output, options) {
           test: /\.m?js$/,
           use: [
             {
-              loader: "babel-loader"
+              loader: "babel-loader",
+              options: {
+                presets: ["@babel/preset-env", "@babel/preset-react"],
+                plugins: ["@babel/plugin-transform-runtime"]
+              }
             }
           ]
         }
